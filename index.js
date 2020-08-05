@@ -1,21 +1,32 @@
-import { errorMessage } from './constants/text'
 import axios from 'axios'
-
+import { errorMessage } from './constants/text'
+import { validateUrls } from './helpers'
+import { pathOr } from 'ramda'
 export default class httpRequest {
-  constructor(urls) {
-    if (!urls) return false
-
-    this.urls = urls
-    if (!Array.isArray(this.urls)) {
-      throw errorMessage.notValidArray
+  /**
+   * ability to get requests and return contents to url
+   * @param {*} urls
+   */
+  requestUrls(urls) {
+    // validation checking of urls are valid
+    if (!urls) {
+      throw new Error(errorMessage.notValidUrls)
     }
-  }
 
-  requestUrls() {
+    if (!validateUrls(urls)) {
+      throw new Error(errorMessage.notValidUrls)
+    }
+
     return Promise.all(
-      this.urls.map(async (url) => {
-        return axios.get(url)
+      urls.map(async (url) => {
+        return axios({ url: url })
       }),
-    )
+    ).catch((error) => {
+      return {
+        ...error,
+        message: pathOr('', ['message'], error),
+        statusCode: pathOr(400, ['response', 'status'], error), // return 400 client issue
+      }
+    })
   }
 }

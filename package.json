@@ -1,5 +1,5 @@
 {
-  "name": "httprequest",
+  "name": "ishouty_httprequest",
   "version": "1.0.0",
   "description": "http request get multiple urls ",
   "main": "index.js",
@@ -7,8 +7,29 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx babel-node index.js",
+    "jest": "jest --detectOpenHandles --config=./jest.config.json ",
+    "jest:debug": "jest --debug",
+    "test": "npm run jest",
+    "test:watch": "npm run jest -- --watchAll"
   },
-  "author": "andy nguyen",
-  "license": "ISC"
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-throw-expressions": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "axios": "^0.19.2",
+    "jest": "^26.2.2",
+    "ramda": "^0.27.1"
+  },
+  "author": {
+    "name": "Andy nguyen",
+    "email": "andy@ishouty.com"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ishouty/ishouty_httprequest.git"
+  }
 }

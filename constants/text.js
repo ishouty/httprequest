@@ -1,3 +1,5 @@
 export const errorMessage = {
-  notValidArray: 'not valid array',
+  notValidUrls: 'Not valid urls',
+  notValidArray: 'Provide array',
+  wrongwithUrl: 'Something wrong with the urls provided',
 }

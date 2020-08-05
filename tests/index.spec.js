@@ -1,14 +1,28 @@
 import httpRequest from '../index'
+import { errorMessage } from '../constants/text'
+
+const request = new httpRequest()
 
 describe('httpRequest', () => {
-  it('Should make requests to urls', async () => {
-    const request = new httpRequest([
+  it('Should return error if error url are invalid', async () => {
+    const urls = [
       'https://ft-tech-test-example.s3-eu-west-1.amazonaws.com/ftse-fsi.json',
-      'https://ft-tech-test-example.s3-eu-west-1.amazonaws.com/gbp-hkd.json',
-      'https://ft-tech-test-example.s3-eu-west-1.amazonaws.com/gbp-usd.json',
-    ])
+      'notvalidurl',
+      'notvalidurl',
+    ]
 
-    const item = await request.requestUrls()
-    console.log(item[0].data)
+    try {
+      await request.requestUrls(urls)
+    } catch (error) {
+      expect(error).toEqual(new Error(errorMessage.notValidUrls))
+    }
+  })
+
+  it('Should throw exception if urls is empty', async () => {
+    try {
+      await request.requestUrls()
+    } catch (error) {
+      expect(error).toEqual(new Error(errorMessage.notValidUrls))
+    }
   })
 })

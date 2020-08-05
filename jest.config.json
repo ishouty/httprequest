@@ -1,0 +1,10 @@
+{
+  "rootDir": "./",
+  "roots": ["<rootDir>/tests/", "<rootDir>"],
+  "verbose": true,
+  "testRegex": ".+\\.spec\\.js?$",
+  "modulePaths": ["<rootDir>"],
+  "coveragePathIgnorePatterns": ["/node_modules/"],
+  "testEnvironment": "node",
+  "resetMocks": true
+}
