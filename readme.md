@@ -34,7 +34,7 @@ Languages/Dependencies used
 
 I also written the main class in ES6, however wanted the module to be compatible with npm so I can publish this to npm. I had issues with transpiling with import/export syntax from ES6 so reverted this back to ES5.
 
-`npm install ishouty_httprequest`
+`npm install ishouty_httprequest_andy`
 
 ## How to use (async/await) ES6 example
 
