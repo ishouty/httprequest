@@ -14,7 +14,6 @@ describe('httpRequest', () => {
     try {
       await request.requestUrls(urls)
     } catch (error) {
-      console.log(errorMessage.notValidUrls)
       expect(error).toEqual(new Error(errorMessage.notValidUrls))
     }
   })
