@@ -36,6 +36,10 @@ I also written the main class in ES6, however wanted the module to be compatible
 
 `npm install ishouty_httprequest_andy`
 
+You can also download this from github
+
+`git clone https://github.com/ishouty/ishouty_httprequest.git`
+
 ## How to use (async/await) ES6 example
 
 ```
