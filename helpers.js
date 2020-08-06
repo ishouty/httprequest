@@ -1,8 +1,8 @@
-import { errorMessage } from './constants/text'
+const constants = require('./text.js')
 
-export const validateUrls = (urls) => {
+const validateUrls = (urls) => {
   if (!Array.isArray(urls)) {
-    throw new Error(errorMessage.notValidArray)
+    throw new Error(constants.errorMessage.notValidArray)
   }
 
   return urls.every((url) => {
@@ -10,8 +10,13 @@ export const validateUrls = (urls) => {
   })
 }
 
-export const validateUrl = (url) => {
+const validateUrl = (url) => {
   return new RegExp(
     /^(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
   ).test(url)
+}
+
+module.exports = {
+  validateUrls,
+  validateUrl,
 }

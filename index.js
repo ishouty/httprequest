@@ -1,8 +1,9 @@
-import axios from 'axios'
-import { errorMessage } from './constants/text'
-import { validateUrls } from './helpers'
-import { pathOr } from 'ramda'
-export default class httpRequest {
+const axios = require('axios')
+const constants = require('./text.js')
+const helpers = require('./helpers.js')
+const R = require('ramda')
+
+class httpRequest {
   /**
    * ability to get requests and return contents to url
    * @param {*} urls
@@ -10,11 +11,11 @@ export default class httpRequest {
   requestUrls(urls) {
     // validation checking of urls are valid
     if (!urls) {
-      throw new Error(errorMessage.notValidUrls)
+      throw new Error(constants.errorMessage.notValidUrls)
     }
 
-    if (!validateUrls(urls)) {
-      throw new Error(errorMessage.notValidUrls)
+    if (!helpers.validateUrls(urls)) {
+      throw new Error(constants.errorMessage.notValidUrls)
     }
 
     return Promise.all(
@@ -24,9 +25,11 @@ export default class httpRequest {
     ).catch((error) => {
       return {
         ...error,
-        message: pathOr('', ['message'], error),
-        statusCode: pathOr(400, ['response', 'status'], error), // return 400 client issue
+        message: R.pathOr('', ['message'], error),
+        statusCode: R.pathOr(400, ['response', 'status'], error), // return 400 client issue
       }
     })
   }
 }
+
+module.exports = httpRequest

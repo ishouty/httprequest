@@ -19,8 +19,11 @@
     "@babel/node": "^7.10.5",
     "@babel/plugin-proposal-throw-expressions": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
+    "@babel/register": "^7.10.5",
+    "jest": "^26.2.2"
+  },
+  "dependencies": {
     "axios": "^0.19.2",
-    "jest": "^26.2.2",
     "ramda": "^0.27.1"
   },
   "author": {

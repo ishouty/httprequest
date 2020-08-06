@@ -24,7 +24,7 @@ When writing this package, you should consider:
 Languages/Dependencies used
 
 - Node
-- ES6
+- ES6/ES5
 - Babel
 - Jest
 - Axios
@@ -32,9 +32,9 @@ Languages/Dependencies used
 
 ## How to install
 
-1. `cd ishouty_request`
+I also written the main class in ES6, however wanted the module to be compatible with npm so I can publish this to npm. I had issues with transpiling with import/export syntax from ES6 so reverted this back to ES5.
 
-2. `npm install`
+`npm install ishouty_httprequest`
 
 ## How to use (async/await) ES6 example
 
@@ -55,6 +55,10 @@ import ishouty_httpRequest from 'ishouty_httpRequest'
 
 ```
 
+## Tests
+
+Tests are written in ES6 and transpiled via babel.
+
 ## How to run tests
 
 `npm run test`
@@ -67,4 +71,3 @@ import ishouty_httpRequest from 'ishouty_httpRequest'
 
 - Pass configuration object to include default features for requests such as baseUrl
 - Update more test coverage
-- Remove any dependencies to reduce size of library such as nodemon, lintrc.js etc...

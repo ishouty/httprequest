@@ -1,5 +1,5 @@
-import { validateUrl, validateUrls } from '../helpers'
-import { errorMessage } from '../constants/text'
+import { validateUrl, validateUrls } from '../helpers.js'
+import { errorMessage } from '../text.js'
 
 describe('helpers', () => {
   describe('validateUrls', () => {
